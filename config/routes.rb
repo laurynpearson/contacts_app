@@ -10,5 +10,7 @@ Rails.application.routes.draw do
     get '/contacts/:id' => 'contacts#show'
     #Create- new
     post '/contacts' => 'contacts#create'
+    #Edit
+    patch '/contacts/:id' => 'contacts#update'
   end
 end
