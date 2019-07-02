@@ -12,5 +12,7 @@ Rails.application.routes.draw do
     post '/contacts' => 'contacts#create'
     #Edit
     patch '/contacts/:id' => 'contacts#update'
+    #Delete
+    delete '/contacts/:id' => 'contacts#delete'
   end
 end

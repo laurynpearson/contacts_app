@@ -29,4 +29,10 @@ class Api::ContactsController < ApplicationController
     @contact.save
     render 'update.json.jb'
   end
+
+  def delete
+    @contact = Contact.find_by(id: params[:id])
+    @contact.delete
+    render 'delete.json.jb'
+  end
 end

@@ -1,0 +1,4 @@
+{
+  deleted_name: @contact.first_name,
+  deleted_id: @contact.id
+}
