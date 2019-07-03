@@ -5,5 +5,7 @@
   email: contact.email,
   phone_number: contact.phone_number,
   full_name: contact.full_name,
-  updated_at: contact.friendly_updated_at
+  updated_at: contact.friendly_updated_at,
+  middle_name: contact.middlename,
+  bio: contact.bio
 }
