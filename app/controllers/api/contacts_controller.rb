@@ -18,8 +18,11 @@ class Api::ContactsController < ApplicationController
       middlename: params[:middle_name],
       bio: params[:bio]
       )
-    @contact.save
-    render 'create.json.jb'
+    if @contact.save
+      render 'create.json.jb'
+    else
+      render 'errors.json.jb'
+    end
   end
 
   def update
@@ -30,8 +33,12 @@ class Api::ContactsController < ApplicationController
     @contact.phone_number = params[:phone_number]
     @contact.middlename = params[:middle_name]
     @contact.bio = params[:bio]
-    @contact.save
-    render 'update.json.jb'
+
+    if @contact.save
+      render 'update.json.jb'
+    else
+      render 'errors.json.jb'
+    end
   end
 
   def delete

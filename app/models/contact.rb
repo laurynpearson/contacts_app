@@ -6,6 +6,6 @@ class Contact < ApplicationRecord
   def full_name
     "#{first_name} #{middlename} #{last_name}"
   end
-
- 
+  validates :first_name, :last_name, presence: true
+  validate :email, format: {with: /@ }
 end
