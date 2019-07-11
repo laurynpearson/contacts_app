@@ -1,6 +1,10 @@
 class Api::ContactsController < ApplicationController
   def index
-    @contact = Contact.all
+    if current_user
+      @contact = current_user.contacts
+    else
+      @contact = []
+    end
     render 'index.json.jb'
   end
 
@@ -16,7 +20,8 @@ class Api::ContactsController < ApplicationController
       email: params[:email],
       phone_number: params[:phone_number],
       middlename: params[:middle_name],
-      bio: params[:bio]
+      bio: params[:bio],
+      user_id: current_user.id
       )
     if @contact.save
       render 'create.json.jb'
@@ -41,7 +46,7 @@ class Api::ContactsController < ApplicationController
     end
   end
 
-  def delete
+  def destroy
     @contact = Contact.find_by(id: params[:id])
     @contact.delete
     render 'delete.json.jb'
