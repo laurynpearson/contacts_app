@@ -1,0 +1,9 @@
+<a href="/contacts">Go back to homepage</a>
+
+<p> <%= @contact.first_name =%></p>
+<p> <%= @contact.last_name =%></p>
+<p> <%= @contact.email =%></p>
+<p> <%= @contact.phone_number =%></p>
+<p> <%= @contact.user_id =%></p>
+
+<a href='/contacts/<%= @contact.id %>' data-method="delete" rel="nofollow">Delete the contact</a>
